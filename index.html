@@ -1,1 +1,9 @@
-hello everyone
+<h1>关于 Zepto 的“点透”事件<h1>
+<p>zepto 的点透事件无非是上面元素的 tap 事件先于 click 事件执行。如果上面元素绑定的 tap 事件刚好是隐藏该元素的话，click 事
+件就会结算在下面的元素上（相当于下面的元素被点击了）。</p>
+<p>网上有一些还扯到了 tap 绑定在 document 上，事件冒泡 balabala... </p>
+<p>如果你看到了这种文章，你一定看不懂。看不懂就对了，因为他就是错的，而且没说明白（说明白不就暴露他是错的了嘛）。</p>
+<p>可以复制下面 HTML 中的代码，然后在 chrome mobile 模拟器上执行看一下。</p> 
+<p>click 和 touchend 事件分别绑定在下层元素和上层遮罩上。上层遮罩在 touchend 时会隐藏，随后 click 事件便触发在了下层元素上。下层元素 click 时会弹窗。整个 demo 并没有把事件绑定在 document 上，但一样有“点透”效果</p>
+<p data-height="265" data-theme-id="0" data-slug-hash="paPPER" data-default-tab="html,result" data-usedata-embed-version="2" data-pen-title="paPPER" data-preview="true" class="codepen">See the Pen <a href="https://codepen.io/dblate/pen/paPPER/">paPPER</a> by yuhui (<a href="https://codepen.io/dblate">@dblate</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
